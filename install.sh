@@ -39,7 +39,7 @@ touch "$HOME/.bash_profile"
   echo "# Cake"
   echo "export CAKEROOT=$HOME/.cake"
   echo "export PATH=$PATH:$CAKEROOT/bin"
-} >> "$HOME/.bash_profile
+} >> "$HOME/.bash_profile"
 
 echo -e "\nCake was installed.\nDont forget to relogin into your shell or run:"
 echo -e "\n\tsource $HOME/.bashrc\n\nto refresh your environment variables."

@@ -4,7 +4,10 @@ Cake is a powerful and flexible Make-like utility tool. Make Tasks Great Again!
 
 ## Installation
 
-TODO: Write installation instructions here
+Execute command to install `Cake`
+```shell
+$ curl https://raw.githubusercontent.com/axvm/cake/master/install.sh | bash
+```
 
 ## Usage
 
