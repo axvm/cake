@@ -23,14 +23,12 @@ module Cake
       end
     end
 
-    # puts "Import: #{import} Code: #{code}"
-
     [ import, code ]
   end
 
-  def eval_code(code : String, silent = false)
+  def eval_code(code : String, silent : Bool = false)
     output = IO::Memory.new
-    status = Process.run(command: "crystal", args: ["eval", code], output: output, error: output)
+    status = Process.run(command: Cake.config.crystal_binary_path, args: ["eval", code], output: output, error: output)
 
     raise Cake::Exceptions::CrystalEvalFailed.new unless status.success?
     puts output unless silent

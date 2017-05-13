@@ -1,7 +1,6 @@
 module Cake
   module Config
     extend self
-    # property storage = Cake::Storage || Cake::DummyStorage
     @@storage = Cake::Storage || Cake::DummyStorage
 
     def storage
@@ -18,6 +17,14 @@ module Cake
 
     def src_path
       File.expand_path("src", lib_path)
+    end
+
+    def crystal_path
+      ENV["CRYSTALROOT"]? || File.expand_path("../", Process.find_executable("crystal"))
+    end
+
+    def crystal_binary_path
+      File.join(crystal_path, "/crystal")
     end
   end
 end

@@ -28,7 +28,7 @@ OptionParser.parse! do |parser|
   end
 end
 
-unless Process.run(command: "crystal", args: ["--help"]).success?
+unless Process.run(command: "crystal", args: ["eval", "puts", "1+1"]).success?
   begin
     raise Cake::Exceptions::CrystalEvalFailed.new
   rescue ex
