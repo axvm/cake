@@ -29,16 +29,16 @@ fi
 cd "$HOME/.cake" && CAKEROOT="$HOME/.cake" shards build --production
 touch "$HOME/.bashrc"
 {
-  echo "# Cake"
-  echo "export CAKEROOT=$HOME/.cake"
-  echo "export PATH=$PATH:$CAKEROOT/bin"
+  echo '# Cake'
+  echo 'export CAKEROOT=$HOME/.cake'
+  echo 'export PATH=$PATH:$CAKEROOT/bin'
 } >> "$HOME/.bashrc"
 
 touch "$HOME/.bash_profile"
 {
-  echo "# Cake"
-  echo "export CAKEROOT=$HOME/.cake"
-  echo "export PATH=$PATH:$CAKEROOT/bin"
+  echo '# Cake'
+  echo 'export CAKEROOT=$HOME/.cake'
+  echo 'export PATH=$PATH:$CAKEROOT/bin'
 } >> "$HOME/.bash_profile"
 
 echo -e "\nCake was installed.\nDont forget to relogin into your shell or run:"

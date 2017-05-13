@@ -1,6 +1,7 @@
 # Cake
 
-Cake is a powerful and flexible Make-like utility tool. Make Tasks Great Again!
+Cake is a powerful and flexible Make-like utility tool.
+Implement tasks on plain crystal-lang and Make Tasks Great Again!
 
 ## Installation
 
@@ -11,7 +12,44 @@ $ curl https://raw.githubusercontent.com/axvm/cake/master/install.sh | bash
 
 ## Usage
 
-Define tasks in `Cakefile` in plain Crystal code and run them via `cake :task_name`
+Develop tasks in plain Crystal code in `Cakefile` and run them via `$ cake :task_name`
+
+### bin/cake
+```
+  Usage:
+    cake task_name
+    cake -T
+
+  Options:
+    -T, --tasks                      Show all tasks
+    -h, --help                       This info
+    -v, --version                    Show version
+```
+
+### Cakefile sample
+```Crystal
+# Define task
+task :task_name do
+  # task logic
+end
+
+# Define task with description
+desc "task useful description"
+task :some_task do
+  # 2 + 1
+end
+
+# Run one task from another
+desc "invoke example"
+task :first do
+  # -Infinity / 0
+  invoke! :second
+end
+
+task :second do
+  # yay we are here!
+end
+```
 
 ## Development
 
