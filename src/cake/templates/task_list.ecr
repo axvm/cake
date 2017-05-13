@@ -1,0 +1,21 @@
+require "<%= "../" * (@src_path.size * 2) %>..<%= @src_path %>/cake"
+extend Cake::DSL
+
+<%= @import_segment.join("\n") %>
+<%= @code_segment.join("\n") %>
+
+require "colorize"
+
+puts "\nAvailable tasks:\n".colorize.white
+
+Cake.config.storage.tasks.each do |task|
+  print " cake :#{task.name}".colorize.light_green
+  print " " * (54 - " cake :#{task.name}".size).abs
+  print "#{task.description}\n".colorize.dark_gray
+end
+
+print "\n"
+print "To run task execute ".colorize.dark_gray
+print "cake :task_name".colorize.light_cyan
+print " in console.".colorize.dark_gray
+print "\n"

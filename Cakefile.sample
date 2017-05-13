@@ -1,0 +1,21 @@
+# to define task:
+task :task_name do
+  # task logic
+end
+
+# to define task description
+desc "task useful description"
+task :some_task do
+  # 2 + 1
+end
+
+# to execute one task from another
+desc "invoke example"
+task :first do
+  # -Infinity / 0
+  invoke! :second
+end
+
+task :second do
+  # yay we are here!
+end

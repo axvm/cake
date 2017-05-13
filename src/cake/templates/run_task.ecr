@@ -1,0 +1,32 @@
+require "<%= "../" * (@src_path.size * 2) %>..<%= @src_path %>/cake"
+extend Cake::DSL
+
+<%= @import_segment.join("\n") %>
+
+require "colorize"
+task :default do
+  puts "\nHello there!".colorize(:light_green)
+  puts "This is default task :)\n".colorize(:light_gray)
+
+  print "Thank you for using ".colorize(:white)
+  print "Cake~!\n".colorize(:light_cyan)
+  print "You can override this task in your ".colorize(:white)
+  print "Cakefile".colorize(:light_cyan)
+  print " i.e:\n\n".colorize(:white)
+
+  print "  task ".colorize(:light_cyan); print ":".colorize(:light_red); print "default ".colorize(:light_cyan); print "do\n".colorize(:light_magenta);
+  print "    puts".colorize(:light_blue); print " \"Like that!\"\n".colorize(:light_green)
+  puts  "  end".colorize(:light_magenta)
+end
+
+<%= @code_segment.join("\n") %>
+
+begin
+  invoke!("<%= @task_name %>")
+rescue ex : Cake::Exceptions::TaskNotFound
+  print "ERROR:".colorize(:white).on_red
+  print " task "; print ":<%= @task_name %>".colorize(:white); print " not defined.\n"
+rescue e
+  print "ERROR:".colorize(:white).on_red
+  print " #{e.message}"
+end

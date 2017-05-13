@@ -1,0 +1,16 @@
+name: cake
+version: 1.0.0
+
+authors:
+  - Alexander Marchenko <axvmindaweb@gmail.com>
+
+description: |
+  Cake is a powerful and flexible Make-like utility tool. Make Tasks Great Again!
+
+targets:
+  cake:
+    main: src/cli.cr
+
+crystal: 0.22.0
+
+license: MIT
