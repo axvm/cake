@@ -16,6 +16,7 @@ OptionParser.parse! do |parser|
     #{"Options:".colorize.white}
   BANNER
   parser.on("-T", "--tasks", "Show all tasks") { show_all = true }
+  parser.on("-D", "--debug", "Enable debug info") { Cake.config.debug = true}
 
   parser.on("-h", "--help", "This info") do
     puts parser
@@ -49,6 +50,7 @@ unless File.readable?(cakefile_file)
   exit(2)
 end
 
+puts "Cake debug mode ENABLED" if Cake.config.debug
 if show_all
   Cake.task_list(cakefile_file)
 else

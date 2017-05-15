@@ -2,6 +2,7 @@ module Cake
   module Config
     extend self
     @@storage = Cake::Storage || Cake::DummyStorage
+    @@debug = false
 
     def storage
       @@storage
@@ -9,6 +10,14 @@ module Cake
 
     def storage=(v)
       @@storage = v
+    end
+
+    def debug
+      @@debug
+    end
+
+    def debug=(val : Bool)
+      @@debug = val
     end
 
     def lib_path

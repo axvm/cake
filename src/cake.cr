@@ -14,6 +14,8 @@ module Cake
     import = [] of String; can_require = true
     code = [] of String
 
+    puts "Cakefile processing" if Cake.config.debug
+
     File.read_lines(cakefile_path).each do |line|
       next if line.empty?
       if line.includes?(%(require ")) && can_require == true
@@ -23,12 +25,34 @@ module Cake
       end
     end
 
+    if Cake.config.debug
+      puts "Cakefile processing completed"
+      puts "<import start>"
+      puts import
+      puts "<import end>"
+      puts "<code start>"
+      puts code
+      puts "<code end>"
+    end
+
     [ import, code ]
   end
 
   def eval_code(code : String, silent : Bool = false)
+    if Cake.config.debug
+      puts "Crystal compiler path is #{Cake.config.crystal_binary_path}"
+      puts "<script start>"
+      puts code
+      puts "<script end>"
+    end
+
     output = IO::Memory.new
     status = Process.run(command: Cake.config.crystal_binary_path, args: ["eval", code], output: output, error: output)
+
+    if Cake.config.debug
+      puts "Ouput is #{output}"
+      puts "Exit code is #{status.exit_code}"
+    end
 
     raise Cake::Exceptions::CrystalEvalFailed.new unless status.success?
     puts output unless silent
