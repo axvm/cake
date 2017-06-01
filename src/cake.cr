@@ -54,12 +54,12 @@ module Cake
       puts "Exit code is #{status.exit_code}"
     end
 
-    exit_code = status.exit_code || :sigfault
+    exit_code = status.exit_code || -1
 
     if exit_code == 127
       raise Cake::Exceptions::CrystalEvalFailed.new
-    elsif exit_code == :sigfault
-      # child process sigfault or something like that
+    elsif exit_code == -1
+      # TODO: child process sigfault or something like that
     end
 
     puts output unless silent
