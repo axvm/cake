@@ -14,8 +14,9 @@ if [ $? -ne 0 ]; then
 fi
 
 if [ -d "$HOME/.cake" ]; then
-  echo "Cake directory already exist. Exiting."
-  exit 1
+  echo "Cake directory already exist. Trying to update cake"
+  cd "$HOME/.cake" && git pull && CAKEROOT="$HOME/.cake" shards build --production && echo "Update has been complete"
+  exit 0
 fi
 
 echo "Cloning Cake repository to $HOME/.cake ..."
