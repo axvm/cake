@@ -54,17 +54,8 @@ module Cake
       puts "Exit code is #{status.exit_code}"
     end
 
-    exit_code = status.exit_code || :sigfault
-
-    if exit_code == 127
-      raise Cake::Exceptions::CrystalEvalFailed.new
-    elsif exit_code == :sigfault
-      # child process sigfault or something like that
-    end
-
+    raise Cake::Exceptions::CrystalEvalFailed.new unless status.success?
     puts output unless silent
-
-    exit exit_code
   end
 
   def task_list(path_to_cakefile : String)
