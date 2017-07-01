@@ -42,6 +42,15 @@ touch "$HOME/.bash_profile"
   echo 'export PATH=$PATH:$CAKEROOT/bin'
 } >> "$HOME/.bash_profile"
 
+if [ -e "$HOME/.zshrc" ]
+then
+  {
+    echo '# Cake'
+    echo 'export CAKEROOT=$HOME/.cake'
+    echo 'export PATH=$PATH:$CAKEROOT/bin'
+  } >> "$HOME/.zshrc"
+fi
+
 echo -e "\nCake was installed.\nDont forget to relogin into your shell or run:"
 echo -e "\n\tsource $HOME/.bashrc\n\nto refresh your environment variables."
 echo "Bye bye~!"
