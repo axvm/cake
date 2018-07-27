@@ -41,6 +41,10 @@ module Cake::DSL
     status = Process.run(command: cmd, args: args, output: io, error: io)
 
     unless io.empty? || io.to_s == "" || io.to_s == "\n"
+      if io.to_s.ends_with? "\n"
+        io = IO::Memory.new io.to_s.chomp
+      end
+
       case output
       when "never"
         nil
