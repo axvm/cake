@@ -1,4 +1,4 @@
-# Cake
+# Cake [![Build Status](https://travis-ci.org/axvm/cake.svg?branch=master)](https://travis-ci.org/axvm/cake)
 
 Cake is a powerful and flexible Make-like utility tool.
 Implement tasks on plain crystal-lang and Make Tasks Great Again!
