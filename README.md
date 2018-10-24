@@ -53,7 +53,10 @@ end
 
 ## Development
 
-TODO: Write development instructions here
+1. Implement feature and tests
+2. Create pull request
+3. ...
+4. Profit!
 
 ## Contributing
 
