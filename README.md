@@ -89,3 +89,4 @@ end
 ## Contributors
 
 - [[axvm]](https://github.com/axvm) Alexander Marchenko - creator, maintainer
+- [[triinoxys]](https://github.com/triinoxys) Alexandre Guiot--Valentin - contributor
