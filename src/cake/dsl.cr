@@ -27,7 +27,11 @@ module Cake::DSL
   end
 
   def log(message : String, status = 0)
-    puts "#{">> ".colorize(status == 0 ? :light_cyan : :light_red)} #{message}"
+    if status == 0
+      STDOUT.puts "#{">> ".colorize(:light_cyan)} #{message}"
+    else
+      STDERR.puts "#{">> ".colorize(:light_red)} #{message}"
+    end
   end
 
   def execute(cmd : String, args = [] of String, announce = "", success = "", error = "", output = "always")
