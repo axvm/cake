@@ -7,6 +7,6 @@ end
 
 describe Cake do
   it "has DSL methods" do
-    responds_to_methods [ :task, :invoke! ]
+    responds_to_methods [ :desc, :task, :invoke!, :execute, :log ]
   end
 end

@@ -49,6 +49,26 @@ end
 task :second do
   # yay we are here!
 end
+
+# Execute shell commands
+task :build do
+  execute "shards build"
+
+  # or with sweet logs
+  execute(
+    cmd: "shards build",
+    announce: "Building binary...",
+    success: "Binary built!",
+    error: "Build failed."
+  )
+end
+
+# Log things
+task :deploy do
+  # your deploy code
+  log "Deploy successful!"
+  log "Or errored.", 1
+end
 ```
 
 ## Development
@@ -69,3 +89,4 @@ end
 ## Contributors
 
 - [[axvm]](https://github.com/axvm) Alexander Marchenko - creator, maintainer
+- [[triinoxys]](https://github.com/triinoxys) Alexandre Guiot--Valentin - contributor
