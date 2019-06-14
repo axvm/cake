@@ -11,6 +11,6 @@ targets:
   cake:
     main: src/cli.cr
 
-crystal: 0.22.0
+crystal: 0.27.2
 
 license: MIT
