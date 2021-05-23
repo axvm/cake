@@ -4,7 +4,7 @@ require "./cake"
 
 show_all = false
 
-OptionParser.parse! do |parser|
+OptionParser.parse do |parser|
   parser.banner = <<-BANNER
     #{"Usage:".colorize.white}
       cake task_name
